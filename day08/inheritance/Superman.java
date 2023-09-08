@@ -16,20 +16,46 @@ package day08.inheritance;
 //Superman is a Human [o]
 //Superman is a CoffeeMachine [x]
 
+
+/*****************************************
+ * super => 부모로 부터 상속받은 것을 접근할 떄 사용하는 키워드
+ * - super.변수
+ * - super.메소드()
+ * - super(): 부모 생성자
+ * static에서는 사용 불가
+ * */
 public class Superman extends Human{
 	
 	int power;
 	
 	public Superman(String n, int h, int p) {
-		name=n;
-		height=h;
-		power=p;
+		super.name=n;
+		super.height=h;
+		this.power=p;
 	}
 	
+	@Override //annotation
 	public void showInfo() {
-		System.out.println("이 름: "+name);
-		System.out.println("키 : "+height);
+		super.showInfo();//이름, 키
+		//System.out.println("이 름: "+name);
+		//System.out.println("키 : "+height);
 		System.out.println("초능력 : "+power);
+	}
+	
+	public void showInfo(String title) {
+		System.out.println(title);
+		//이름, 키, 초능력
+		this.showInfo();
+		
+	}
+	//showInfo() 오버로드 하기
+	public String showInfo(String title, int upPower) {
+		String str=title+"\n";
+		str+="이름 : "+name+"\n키: "+height+"\n초능력: "+power;
+		str+=">>>초능력 UP: "+upPower+"<<<\n";
+		power+=upPower;
+		str+="현재 초능력: "+power;
+		return str;
 	}
 
 }

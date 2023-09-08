@@ -14,7 +14,7 @@ public class MyDiary {
 	
 	public void createGUI() {
 		JFrame f= new JFrame("::나의 일기장::");
-		f.setBounds(1200,200,700,800);//x,y,w,h
+		f.setBounds(500,200,700,800);//x,y,w,h
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(138, 43, 226));
@@ -64,6 +64,10 @@ public class MyDiary {
 				
 				//서브 페이지 띄우기
 				sub.createSubGUI();
+				
+				//로그인 프레임 닫기
+				f.setVisible(false);
+				f.dispose();
 			}
 		});
 		bt1.setMnemonic('L');
